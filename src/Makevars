@@ -1,0 +1,10 @@
+.PHONY : all
+
+all : cmdScript  $(SHLIB)
+
+cmdScript :
+ifdef R_HOME
+	${R_HOME}/bin/Rscript ../exec/install-script.R
+else
+	(R_HOME=`R RHOME`; ${R_HOME}/bin/Rscript ../exec/install-script.R)
+endif
