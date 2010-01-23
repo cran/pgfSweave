@@ -1,3 +1,223 @@
+commit 64c157148d2582140afaddc553fa2da931eb6c03
+Merge: 9e9787a d8ec864
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Thu Apr 8 13:05:15 2010 -0600
+
+    Merge branch 'master' into r-forge-local
+    
+    Conflicts:
+    	ChangeLog
+    	inst/doc/figs/fig-normalSweave.pdf
+    	inst/doc/pgfSweave-example.pdf
+    	inst/doc/pgfSweave.pdf
+
+commit d8ec8642a7296225877f14a40098fdb43cf92cb8
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Thu Apr 8 13:02:12 2010 -0600
+
+    Try using predefined R_HOME in Makevars and no GNU Make requirement
+    
+    Add binary attribute to pdf files to avoid merging, rebuild vignette to test
+
+ .gitattributes                            |    1 +
+ ChangeLog                                 |   36 +++++++++++++++++++++++++++++
+ DESCRIPTION                               |    2 +-
+ inst/doc/figs/fig-normalSweave.pdf        |  Bin 3056 -> 3140 bytes
+ inst/doc/figs/fig-pgfSweave-hist.pdf      |  Bin 17639 -> 17643 bytes
+ inst/doc/figs/fig-pgfSweave-tikz-hist.pdf |  Bin 28915 -> 28962 bytes
+ inst/doc/pgfSweave-example.pdf            |  Bin 88353 -> 88361 bytes
+ inst/doc/pgfSweave.pdf                    |  Bin 293971 -> 294117 bytes
+ src/Makevars                              |    4 ---
+ 9 files changed, 38 insertions(+), 5 deletions(-)
+
+commit 9e9787ac21c4510c8743d06a058773f3cc10d7f8
+Merge: 5729aac a6c2600
+Author: cameronbracken <cameronbracken@edb9625f-4e0d-4859-8d74-9fd3b1da38cb>
+Date:   Wed Apr 7 00:31:51 2010 +0000
+
+    Merge branch 'master' into r-forge-local
+    
+    git-svn-id: svn+ssh://svn.r-forge.r-project.org/svnroot/pgfsweave/pkg@14 edb9625f-4e0d-4859-8d74-9fd3b1da38cb
+
+commit a6c2600e7df9b9137c0ef1c0caf6d002df33e36e
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Tue Apr 6 18:29:32 2010 -0600
+
+    Revert Makevars to use GNU make conditional, list GNU make as SystemRequirement
+
+ DESCRIPTION  |    3 ++-
+ src/Makevars |    4 ++++
+ 2 files changed, 6 insertions(+), 1 deletions(-)
+
+commit 5729aac3dedd669e2a749b84f735b33a6c3a76b1
+Merge: dfa4886 0c7ffb2
+Author: cameronbracken <cameronbracken@edb9625f-4e0d-4859-8d74-9fd3b1da38cb>
+Date:   Sun Apr 4 21:04:43 2010 +0000
+
+    Merge branch 'master' into r-forge-local
+    
+    Conflicts:
+    	ChangeLog
+    	inst/doc/figs/fig-normalSweave.pdf
+    	inst/doc/pgfSweave-example.pdf
+    	inst/doc/pgfSweave.pdf
+    
+    git-svn-id: svn+ssh://svn.r-forge.r-project.org/svnroot/pgfsweave/pkg@13 edb9625f-4e0d-4859-8d74-9fd3b1da38cb
+
+commit 0c7ffb21a7b856e6a484004fb7bb211254a9a830
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Sun Apr 4 14:44:14 2010 -0600
+
+    Add removed example file
+
+ inst/example/pgfSweave-example.tex |   44 ++++++++++++++++++++++++++++++++++++
+ 1 files changed, 44 insertions(+), 0 deletions(-)
+
+commit c2811c2a1cd9af4cad36391c7f1b2913071543d1
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Sun Apr 4 14:42:36 2010 -0600
+
+    Version 1.0.5
+
+ ChangeLog                                 |   60 +++++++++++++++++++++++++++++
+ DESCRIPTION                               |    2 +-
+ NEWS                                      |    3 +-
+ inst/doc/figs/fig-normalSweave.pdf        |  Bin 3071 -> 3056 bytes
+ inst/doc/figs/fig-pgfSweave-hist.pdf      |  Bin 17644 -> 17639 bytes
+ inst/doc/figs/fig-pgfSweave-tikz-hist.pdf |  Bin 28919 -> 28915 bytes
+ inst/doc/pgfSweave-example.pdf            |  Bin 88546 -> 88353 bytes
+ inst/doc/pgfSweave.Rnw                    |    3 +-
+ inst/doc/pgfSweave.pdf                    |  Bin 290456 -> 293971 bytes
+ 9 files changed, 64 insertions(+), 4 deletions(-)
+
+commit 481238dfd60acd0d34d94e4ab0d982dd28dc67be
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Sun Apr 4 14:19:59 2010 -0600
+
+    Code chunks no longer need to be labeled
+
+ NEWS                                               |    7 +
+ R/cacheSweaveUnexportedFunctions.R                 |    5 +-
+ R/pgfSweaveDriver.R                                |  970 ++++++++++----------
+ inst/misc/vignette-src/Makefile                    |    2 +-
+ .../vignette-src/pgfSweave-vignette-source.Rnw     |    1 +
+ 5 files changed, 480 insertions(+), 505 deletions(-)
+
+commit 63435c5aa3ad9f722c3414c7d334d09502d7c530
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Sun Apr 4 12:40:34 2010 -0600
+
+    Minor edits to docs
+
+ README                  |    7 +++++--
+ exec/pgfsweave-script.R |    2 +-
+ man/pgfSweave.Rd        |   12 +++++++++---
+ 3 files changed, 15 insertions(+), 6 deletions(-)
+
+commit 2223ef242be27cec4a250a79948861577ac10f52
+Merge: c3461dd 94c62bf
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Sun Apr 4 12:34:07 2010 -0600
+
+    Merge branch 'master' of github.com:cameronbracken/pgfSweave
+
+commit c3461dd65d21b3ec979c0464a97bbcecb7cc9e7a
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Sun Apr 4 12:32:38 2010 -0600
+
+    Fix Makevars for building on Solaris
+
+ src/Makevars |    4 ----
+ 1 files changed, 0 insertions(+), 4 deletions(-)
+
+commit 94c62bfe979aface376e39fe336fe37599532deb
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Tue Feb 23 11:48:26 2010 -0700
+
+    Minor tweaks to NEWS, DESCRIPTION, README and vignette
+
+ ChangeLog                                          |   20 ++++++++++++++++++++
+ DESCRIPTION                                        |   18 ++++++++++++------
+ NEWS                                               |   13 ++++++++++---
+ README                                             |    2 --
+ inst/doc/figs/fig-normalSweave.pdf                 |  Bin 3140 -> 3071 bytes
+ inst/doc/figs/fig-pgfSweave-hist.pdf               |  Bin 17594 -> 17644 bytes
+ inst/doc/figs/fig-pgfSweave-tikz-hist.pdf          |  Bin 28974 -> 28919 bytes
+ inst/doc/pgfSweave-example.pdf                     |  Bin 88333 -> 88546 bytes
+ inst/doc/pgfSweave.Rnw                             |    9 ++++-----
+ inst/doc/pgfSweave.pdf                             |  Bin 290255 -> 290456 bytes
+ inst/misc/vignette-src/Makefile                    |    4 ++--
+ .../vignette-src/pgfSweave-vignette-source.Rnw     |    5 ++---
+ 12 files changed, 50 insertions(+), 21 deletions(-)
+
+commit d970329d43165aab65424d1a16fda0c1030bd2f5
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Tue Feb 23 01:57:06 2010 -0700
+
+    Check for correct pgf version on startup. Show correct filenames for examples in vignette.
+
+ ChangeLog                                          |   20 ++++++++
+ R/zzz.R                                            |   49 ++++++++++++++++++++
+ inst/doc/figs/fig-normalSweave.pdf                 |  Bin 2929 -> 3140 bytes
+ inst/doc/figs/fig-pgfSweave-hist.pdf               |  Bin 17330 -> 17594 bytes
+ inst/doc/figs/fig-pgfSweave-tikz-hist.pdf          |  Bin 28698 -> 28974 bytes
+ inst/doc/pgfSweave-example.pdf                     |  Bin 88108 -> 88333 bytes
+ inst/doc/pgfSweave.Rnw                             |    5 +-
+ inst/doc/pgfSweave.pdf                             |  Bin 289735 -> 290255 bytes
+ inst/example/pgfSweave-example.tex                 |   44 ------------------
+ inst/misc/test-for-pgf.tex                         |    6 ++
+ inst/misc/vignette-src/Makefile                    |    4 +-
+ .../vignette-src/pgfSweave-vignette-source.Rnw     |    6 ++-
+ 12 files changed, 84 insertions(+), 50 deletions(-)
+
+commit dfa48866b3b94c253b68c98d960aa2b3b5e46de3
+Merge: 82cc2fd 8b64651
+Author: cameronbracken <cameronbracken@edb9625f-4e0d-4859-8d74-9fd3b1da38cb>
+Date:   Fri Dec 25 20:40:27 2009 +0000
+
+    Merge branch 'master' into r-forge-local
+    
+    Conflicts:
+    	ChangeLog
+    	inst/doc/figs/fig-normalSweave.pdf
+    	inst/doc/figs/fig-pgfSweave-hist.pdf
+    	inst/doc/figs/fig-pgfSweave-tikz-hist.pdf
+    	inst/doc/pgfSweave-example.pdf
+    	inst/doc/pgfSweave.pdf
+    
+    git-svn-id: svn+ssh://svn.r-forge.r-project.org/svnroot/pgfsweave/pkg@12 edb9625f-4e0d-4859-8d74-9fd3b1da38cb
+
+commit 8b646513162b8486904ddbd916becc9d75602040
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Fri Dec 25 12:32:28 2009 -0800
+
+    New release 1.0.3 for CRAN, see NEWS file
+
+ ChangeLog                                          |  250 +++++++++++++-------
+ DESCRIPTION                                        |    2 +-
+ NEWS                                               |    9 +
+ README                                             |    5 -
+ exec/pgfsweave-script.R                            |   10 +-
+ inst/doc/figs/fig-normalSweave.pdf                 |  Bin 3048 -> 2929 bytes
+ inst/doc/figs/fig-pgfSweave-hist.pdf               |  Bin 17299 -> 17330 bytes
+ inst/doc/figs/fig-pgfSweave-tikz-hist.pdf          |  Bin 28663 -> 28698 bytes
+ inst/doc/pgfSweave-example.pdf                     |  Bin 86755 -> 88108 bytes
+ inst/doc/pgfSweave.Rnw                             |   40 ++--
+ inst/doc/pgfSweave.pdf                             |  Bin 277215 -> 289735 bytes
+ .../vignette-src/pgfSweave-vignette-source.Rnw     |   42 ++--
+ 12 files changed, 233 insertions(+), 125 deletions(-)
+
+commit 648d3068935afa77325696f95614ddf302903bff
+Author: cameronbracken <cameron.bracken@gmail.com>
+Date:   Sun Dec 6 01:59:47 2009 -0700
+
+    Better help for pgfsweave-script.R
+
+ exec/install-script.R   |    2 +-
+ exec/pgfsweave          |    4 +++-
+ exec/pgfsweave-script.R |   26 ++++++++++++++------------
+ 3 files changed, 18 insertions(+), 14 deletions(-)
+
 commit 82cc2fd18794b91439e84120172991ec230a9b36
 Merge: d790e2d 09fc61a
 Author: cameronbracken <cameronbracken@edb9625f-4e0d-4859-8d74-9fd3b1da38cb>
