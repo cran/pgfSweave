@@ -1,8 +1,8 @@
 Package: pgfSweave
 Type: Package
 Title: Quality speedy graphics compilation with Sweave
-Version: 1.0.6
-Date: 2010-08-06
+Version: 1.0.9
+Date: 2010-09-14
 Author: Cameron Bracken <cameron.bracken@gmail.com> and Charlie
         Sharpsteen <source@sharpsteen.net>
 Maintainer: Cameron Bracken <cameron.bracken@gmail.com>
@@ -21,8 +21,6 @@ Description: The pgfSweave package provides capabilities for 'caching'
 License: GPL
 LazyLoad: yes
 URL: https://r-forge.r-project.org/projects/pgfsweave/
+Packaged: 2010-09-20 19:53:17 UTC; cameron
 Repository: CRAN
-Repository/R-Forge/Project: pgfsweave
-Repository/R-Forge/Revision: 17
-Date/Publication: 2010-08-10 14:17:10
-Packaged: 2010-08-06 20:51:22 UTC; rforge
+Date/Publication: 2010-09-21 08:14:54
