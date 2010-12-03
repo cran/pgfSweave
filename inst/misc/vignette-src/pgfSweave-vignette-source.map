@@ -1,0 +1,60 @@
+chunk: setup
+chunkprefix: pgfSweave-vignette-source-setup
+fig:
+cacheDB:
+time: 2010-12-03 11:45:22
+
+chunk: nohi
+chunkprefix: figs/fig-nohi
+fig:
+cacheDB: cache/nohi_7bcf48f7fe2de449d6d2a4305363ee95
+time: 2010-12-03 11:45:22
+
+chunk: hi
+chunkprefix: figs/fig-hi
+fig:
+cacheDB: cache/hi_7bcf48f7fe2de449d6d2a4305363ee95
+time: 2010-12-03 11:45:22
+
+chunk: notidy
+chunkprefix: figs/fig-notidy
+fig:
+cacheDB: cache/notidy_7bcf48f7fe2de449d6d2a4305363ee95
+time: 2010-12-03 11:45:22
+
+chunk: tidy
+chunkprefix: figs/fig-tidy
+fig:
+cacheDB: cache/tidy_7bcf48f7fe2de449d6d2a4305363ee95
+time: 2010-12-03 11:45:22
+
+chunk: tidy
+chunkprefix: figs/fig-tidy
+fig:
+cacheDB: cache/tidy_7bcf48f7fe2de449d6d2a4305363ee95
+time: 2010-12-03 11:45:22
+
+chunk: first
+chunkprefix: figs/fig-first
+fig:
+cacheDB: cache/first_40665ecd94aabed851552f8e0695a196
+time: 2010-12-03 11:45:23
+
+chunk: normalSweave
+chunkprefix: figs/fig-normalSweave
+fig: figs/fig-normalSweave.pdf
+cacheDB: cache/normalSweave_dae91be600d8027bdd304b26bd2e5206
+time: 2010-12-03 11:45:23
+
+chunk: pgfSweave-hist
+chunkprefix: figs/fig-pgfSweave-hist
+fig: figs/fig-pgfSweave-hist.pgf
+cacheDB: cache/pgfSweave-hist_dae91be600d8027bdd304b26bd2e5206
+time: 2010-12-03 11:45:23
+
+chunk: pgfSweave-tikz-hist
+chunkprefix: figs/fig-pgfSweave-tikz-hist
+fig: figs/fig-pgfSweave-tikz-hist.tikz
+cacheDB: cache/pgfSweave-tikz-hist_dae91be600d8027bdd304b26bd2e5206
+time: 2010-12-03 11:45:26
+

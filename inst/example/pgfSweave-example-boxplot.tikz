@@ -1,0 +1,177 @@
+% Created by tikzDevice version GitHub Dev on 2010-12-02 22:22:49
+% !TEX encoding = UTF-8 Unicode
+\begin{tikzpicture}[x=1pt,y=1pt]
+\draw[color=white,opacity=0] (0,0) rectangle (289.08,289.08);
+\begin{scope}
+\path[clip] ( 49.20, 61.20) rectangle (263.88,239.88);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\draw[color=drawColor,line width= 1.2pt,line join=round,fill opacity=0.00,] ( 61.13, 84.66) -- ( 92.93, 84.66);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] ( 77.03, 67.82) -- ( 77.03, 77.72);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] ( 77.03,111.41) -- ( 77.03, 98.53);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 69.08, 67.82) -- ( 84.98, 67.82);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 69.08,111.41) -- ( 84.98,111.41);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 61.13, 77.72) --
+	( 92.93, 77.72) --
+	( 92.93, 98.53) --
+	( 61.13, 98.53) --
+	( 61.13, 77.72);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 77.03,180.76) circle (  2.25);
+
+\draw[color=drawColor,line width= 1.2pt,line join=round,fill opacity=0.00,] (100.88, 89.61) -- (132.69, 89.61);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (116.78, 78.72) -- (116.78, 86.64);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (116.78,105.46) -- (116.78,103.48);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (108.83, 78.72) -- (124.74, 78.72);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (108.83,105.46) -- (124.74,105.46);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (100.88, 86.64) --
+	(132.69, 86.64) --
+	(132.69,103.48) --
+	(100.88,103.48) --
+	(100.88, 86.64);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (116.78,137.17) circle (  2.25);
+
+\draw[color=drawColor,line width= 1.2pt,line join=round,fill opacity=0.00,] (140.64,126.27) -- (172.44,126.27);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (156.54, 73.76) -- (156.54,101.50);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (156.54,200.57) -- (156.54,146.08);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (148.59, 73.76) -- (164.49, 73.76);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (148.59,200.57) -- (164.49,200.57);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (140.64,101.50) --
+	(172.44,101.50) --
+	(172.44,146.08) --
+	(140.64,146.08) --
+	(140.64,101.50);
+
+\draw[color=drawColor,line width= 1.2pt,line join=round,fill opacity=0.00,] (180.39,118.34) -- (212.20,118.34);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (196.30, 75.74) -- (196.30, 94.57);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (196.30,233.26) -- (196.30,150.04);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (188.34, 75.74) -- (204.25, 75.74);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (188.34,233.26) -- (204.25,233.26);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (180.39, 94.57) --
+	(212.20, 94.57) --
+	(212.20,150.04) --
+	(180.39,150.04) --
+	(180.39, 94.57);
+
+\draw[color=drawColor,line width= 1.2pt,line join=round,fill opacity=0.00,] (220.15, 89.61) -- (251.95, 89.61);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (236.05, 73.76) -- (236.05, 82.68);
+
+\draw[color=drawColor,dash pattern=on 4pt off 4pt ,line cap=round,line join=round,fill opacity=0.00,] (236.05,113.39) -- (236.05,102.49);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (228.10, 73.76) -- (244.00, 73.76);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (228.10,113.39) -- (244.00,113.39);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (220.15, 82.68) --
+	(251.95, 82.68) --
+	(251.95,102.49) --
+	(220.15,102.49) --
+	(220.15, 82.68);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (236.05,161.93) circle (  2.25);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (236.05,144.10) circle (  2.25);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (236.05,139.15) circle (  2.25);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (236.05,156.98) circle (  2.25);
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (289.08,289.08);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 77.03, 61.20) -- (236.05, 61.20);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 77.03, 61.20) -- ( 77.03, 55.20);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (116.78, 61.20) -- (116.78, 55.20);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (156.54, 61.20) -- (156.54, 55.20);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (196.30, 61.20) -- (196.30, 55.20);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] (236.05, 61.20) -- (236.05, 55.20);
+
+\node[color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 77.03, 37.20) {5%
+};
+
+\node[color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (116.78, 37.20) {6%
+};
+
+\node[color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (156.54, 37.20) {7%
+};
+
+\node[color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (196.30, 37.20) {8%
+};
+
+\node[color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (236.05, 37.20) {9%
+};
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 49.20, 66.83) -- ( 49.20,215.43);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 49.20, 66.83) -- ( 43.20, 66.83);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 49.20,116.36) -- ( 43.20,116.36);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 49.20,165.90) -- ( 43.20,165.90);
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 49.20,215.43) -- ( 43.20,215.43);
+
+\node[rotate= 90.00,color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20, 66.83) {0%
+};
+
+\node[rotate= 90.00,color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20,116.36) {50%
+};
+
+\node[rotate= 90.00,color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20,165.90) {100%
+};
+
+\node[rotate= 90.00,color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 37.20,215.43) {150%
+};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (289.08,289.08);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\node[color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.20] at (156.54,259.95) {\bfseries Ozone distribution%
+};
+
+\node[color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at (156.54, 13.20) {Month%
+};
+
+\node[rotate= 90.00,color=drawColor,anchor=base,inner sep=0pt, outer sep=0pt, scale=  1.00] at ( 13.20,150.54) {Concentration%
+};
+\end{scope}
+\begin{scope}
+\path[clip] (  0.00,  0.00) rectangle (289.08,289.08);
+\definecolor[named]{drawColor}{rgb}{0.00,0.00,0.00}
+
+\draw[color=drawColor,line cap=round,line join=round,fill opacity=0.00,] ( 49.20, 61.20) --
+	(263.88, 61.20) --
+	(263.88,239.88) --
+	( 49.20,239.88) --
+	( 49.20, 61.20);
+\end{scope}
+\end{tikzpicture}

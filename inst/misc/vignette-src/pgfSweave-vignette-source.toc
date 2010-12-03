@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Motivation and Background}{2}{section.2}
+\contentsline {section}{\numberline {3}System Requirements}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Windows specific requirements}{3}{subsection.3.1}
+\contentsline {section}{\numberline {4}Usage}{3}{section.4}
+\contentsline {subsection}{\numberline {4.1}The \texttt {tikz} option}{3}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}The \texttt {pgf} option}{4}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}The \texttt {sanitize} option}{4}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}The \texttt {external} option}{4}{subsection.4.4}
+\contentsline {subsection}{\numberline {4.5}The \texttt {$\delimiter "026E30F $pgfrealjobname} commmand}{5}{subsection.4.5}
+\contentsline {subsection}{\numberline {4.6}The \texttt {tex.driver} option (Externalization Driver)}{5}{subsection.4.6}
+\contentsline {subsection}{\numberline {4.7}The \texttt {highlight} option}{5}{subsection.4.7}
+\contentsline {subsection}{\numberline {4.8}The \texttt {tidy} option}{6}{subsection.4.8}
+\contentsline {subsection}{\numberline {4.9}Compilation Time}{7}{subsection.4.9}
+\contentsline {subsection}{\numberline {4.10}A Complete Example}{7}{subsection.4.10}
+\contentsline {section}{\numberline {5}The Process}{10}{section.5}
+\contentsline {section}{\numberline {6}Consistency in style between graphics and text}{11}{section.6}
+\contentsline {section}{\numberline {7}Sweave graphic width defaults}{12}{section.7}
+\contentsline {section}{\numberline {8}Command line interface}{12}{section.8}
+\contentsline {section}{\numberline {9}Frequently Asked Questions}{13}{section.9}
