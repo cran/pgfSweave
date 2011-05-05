@@ -1,16 +1,6 @@
 % !TEX TS-program = pgfSweave
 \RequirePackage{atbegshi}
 \documentclass{article}
-
-%% $ R CMD pgfsweave pgfSweave-vignette-source.Rnw
-
-% \VignetteIndexEntry{The pgfSweave Package}
-% \VignetteDepends{pgfSweave}
-% \VignetteDepends{tikzDevice}
-
-\usepackage[x11names]{xcolor}
-\usepackage{tikz}
-\usetikzlibrary{positioning,shapes.geometric,arrows}
 \newcommand{\hlnumber}[1]{\textcolor[rgb]{0.0823529411764706,0.0784313725490196,0.709803921568627}{#1}}%
 \newcommand{\hlfunctioncall}[1]{\textcolor[rgb]{1,0,0}{#1}}%
 \newcommand{\hlstring}[1]{\textcolor[rgb]{0.6,0.6,1}{#1}}%
@@ -374,6 +364,22 @@
 \newcommand{\hlkwc}[1]{\textcolor[rgb]{0,0,0}{\bf{#1}}}
 \newcommand{\hlkwd}[1]{\textcolor[rgb]{0,0,0.51}{#1}}
 
+\newenvironment{Houtput}{\raggedright}{%
+%
+}
+
+\usepackage[utf8]{inputenc}
+
+%% $ R CMD pgfsweave pgfSweave-vignette-source.Rnw
+
+% \VignetteIndexEntry{The pgfSweave Package}
+% \VignetteDepends{pgfSweave}
+% \VignetteDepends{tikzDevice}
+
+\usepackage[x11names]{xcolor}
+\usepackage{tikz}
+
+\usetikzlibrary{positioning,shapes.geometric,arrows}
 \usepackage[nogin,noae]{Sweave}
 
 \usepackage[parfill]{parskip}
@@ -408,7 +414,7 @@ http://cran.r-project.org/web/packages/pgfSweave/index.html
 
 \clearpage
 \section{Introduction} 
-The \pkg{pgfSweave} package is about {\color{SteelBlue1}speed} and {\color{Sienna1}style}.  For {\color{SteelBlue1}speed}, the package provides capabilities for ``caching'' graphics generated with \pkg{Sweave} on top of the caching funcitonality of \pkg{cacheSweave}\footnote{\url{http://cran.r-project.org/web/packages/cacheSweave/index.html}}.  For {\color{Sienna1}style} the \pkg{pgfSweave} package facilitates the integration of \lang{R} graphics with \LaTeX\ reports through the \pkg{tikzDevice}\footnote{\url{http://cran.r-project.org/web/packages/tikzDevice/index.html}} package or the \pkg{eps2pgf}\footnote{\url{http://sourceforge.net/projects/eps2pgf/}} utility.  With these tools, figure labels are converted to \LaTeX{} strings so they match the style of the document and the full range of \LaTeX{} math symbols/equations are available.  In addition \pkg{pgfSweave} can produce syntax highlighted and/or cleaned up source code. 
+The \pkg{pgfSweave} package is about {\color{SteelBlue1}speed} and {\color{Sienna1}style}.  For {\color{SteelBlue1}speed}, the package provides capabilities for ``caching'' graphics generated with \pkg{Sweave} on top of the caching funcitonality of \pkg{cacheSweave}\footnote{\url{http://cran.r-project.org/web/packages/cacheSweave/index.html}}.  For {\color{Sienna1}style} the \pkg{pgfSweave} package facilitates the integration of \lang{R} graphics with \LaTeX\ reports through the \pkg{tikzDevice}\footnote{\url{http://cran.r-project.org/web/packages/tikzDevice/index.html}} package.  With these tools, figure labels are converted to \LaTeX{} strings so they match the style of the document and the full range of \LaTeX{} math symbols/equations are available.  In addition \pkg{pgfSweave} can produce syntax highlighted and/or cleaned up source code. 
 
 The backbone of \pkg{pgfSweave} is a a new driver for \pkg{Sweave} (\code
 {pgfSweaveDriver}). The driver provides new chunk options \code{tikz}, \code{pgf} and \code
@@ -429,7 +435,7 @@ The existing methods have some drawbacks:
 \item Consistency in style (font, point size) in automatically generated graphics is difficult to achieve.  The default font and point size in \lang{R} does not match \LaTeX{} very well and getting this to match precisely is tricky business.  The previously mentioned tools, \pkg{tikzDevice} and \pkg{eps2pgf}, counter this but using them with \pkg{Sweave} manually can be cumbersome.
 \end{enumerate}
 
-The \pkg{pgfSweave} package addresses these drawbacks.  The so called ``caching'' of plots is achieved with the help of three tools: the \TeX{} package \pkg{PGF}\footnote{\url{http://sourceforge.net/projects/pgf/}}  and either the command line utility \pkg{eps2pgf} or the \lang{R} package \pkg{tikzDevice}.  When we refer to the ``caching'' of a graphic we mean that if the code chunk which generated the graphic is unchanged, an image included from a file rather than regenerated from the code.  The \TeX{} package \pkg{pgf} provides the ability to ``externalize graphics.''  The effect of externalization is that graphics get extracted and compiled separately, saving time on subsequent compilations.  The externalization chapter in the \pkg {PGF/Ti\textit{k}Z} manual is extremely well written, and we refer the interested user there for more information.  Externalization plus some clever checking on the part of \pkg{pgfSweave} makes up the caching mechanism.  
+The \pkg{pgfSweave} package addresses these drawbacks.  The so called ``caching'' of plots is achieved with the help of two tools: the \TeX{} package \pkg{PGF}\footnote{\url{http://sourceforge.net/projects/pgf/}}  and the \lang{R} package \pkg{tikzDevice}.  When we refer to the ``caching'' of a graphic we mean that if the code chunk which generated the graphic is unchanged, an image included from a file rather than regenerated from the code.  The \TeX{} package \pkg{pgf} provides the ability to ``externalize graphics.''  The effect of externalization is that graphics get extracted and compiled separately, saving time on subsequent compilations.  The externalization chapter in the \pkg {PGF/Ti\textit{k}Z} manual is extremely well written, and we refer the interested user there for more information.  Externalization plus some clever checking on the part of \pkg{pgfSweave} makes up the caching mechanism.  
 
 The plot style consistency drawback is addressed by the handy options \code{tikz} and \code
 {pgf} which allow for graphics to be output in these formats. Again, it is possible to do this 
@@ -442,8 +448,8 @@ manually but the chunk options make things easier.
 In general \pkg{pgfSweave} depends on:
 \begin{enumerate}
 \item A working \TeX{} distribution (such as TeXLive for linux and mac and MiKTex for Windows)
-\item The java command line interpreter (i.e. the \code{java} command).  This is standard on most systems and is free to download otherwise. 
-\item At least version 2.00 of the \pkg{PGF/Ti\textit{k}Z} package for \LaTeX{}. 
+\item At least version 2.10 of the \pkg{PGF/Ti\textit{k}Z} package for \LaTeX{}.
+\item The GNU make utility for externalizing graphics. 
 \end{enumerate}
 
 That should be it for any *nix or Mac OS X system. 
@@ -453,13 +459,12 @@ That should be it for any *nix or Mac OS X system.
 The \pkg{pgfSweave} package can work on Windows with some special care.  First of all it is strongly recommended that R be installed in a location that does not have spaces in its path name such as \texttt{C:$\backslash$R}.  This will save much grief when using \pkg{Sweave}. In addition, do the following in the order listed. 
 
 \begin{enumerate}
-\item Install Java. 
 \item Install MiK\TeX{}. 
-\item Upgrade to or install PGF 2.0 if not already done. 
+\item Upgrade to or install PGF 2.10 if not already done (the command mpm).
 \item Install Rtools\footnote{\url{http://www.murdoch-sutherland.com/Rtools/}}. Make sure to allow the Rtools installer to modify your PATH.  
 \end{enumerate}
 
-If everything is set up correctly, the commands \code{java} and \code{pdflatex} or \code{latex} should be available at the command prompt.    
+If everything is set up correctly, the commands \code{make} and \code{pdflatex} or \code{latex} should be available at the command prompt.    
 
 
 
@@ -501,6 +506,9 @@ Output:
 The \code{.tikz} file is generated with the \pkg{tikzDevice} package.  {\color{red} This is the default graphics output for \pkg{pgfSweave}, the \code{tikz} option is set to \code{TRUE} by default.}
 
 \subsection{The \code{pgf} option}
+
+{\color{red} This option is depreciated, please use the \code{tikz} option instead.}
+
 The second new code chunk option \code{pgf}, acts the same as the tikz option in that the result is an \code{$\backslash$input\{\}} statement.  Consider the following code:
 
 \begin{minipage}[!ht]{.5\linewidth}
@@ -537,9 +545,27 @@ This option is a boolean value that accesses the \code{tikz()} option of the sam
 
 \subsection{The \code{external} option}
 
-The external option is the interface to the graphics caching mechanism in \pkg{pgfSweave}. This option will wrap your graphics output in \code{$\backslash$beginpgfgraphicnamed} and \code{$\backslash$endpgfgraphicnamed}.
+Externalization is a feature of the TikZ package that is the main component of graphics caching in \pkg{pgfSweave}. Graphics that do ont change between successive runs will not be re-compiled, but simply included as pdf files.  For very complex graphs, this may not actually save much time as the inclusion of the large pdf will still take significant time. In these situations, you may want to consider using raster graphics (such as png). 
 
-\begin{minipage}[!ht]{.55\linewidth}
+Before version 1.2, \pkg{pgfSweave} used the `old' method of externalizing graphics (\verb"\beginpgfgraphicnamed"...). This method works fine but is fairly limited in terms of cool features. As of version 1.2, \pkg{pgfSweave} uses the `new' externalization via the TikZ externalization library. This library has a lot of cool bells and whistles and can even make some speed improvements over the old method. {\color{red} Please refer to the pgf manual for a comprehensive overview of the TikZ externalization library}. 
+
+The new method uses the externalization library feature \texttt{list and make}. To quote from the TikZ manual:
+
+\begin{quote}
+The mode \texttt{list and make} is similar to \texttt{list only}: it generates the same file {$<$main file$>$}.figlist, but any images which exist already are included as graphics instead of ignoring them. Furthermore, this mode generates an additional file: {$<$main file$>$}.makefile. This allows to use a work flow like
+
+\begin{Verbatim}
+% step 1: generate main.makefile: 
+pdflatex main 
+% step 2: generate ALL graphics on 2 processors: 
+make -j 2 main.makefile 
+% step 3: include the graphics: 
+pdflatex main
+\end{Verbatim}
+
+This last make method is, however unnecessary: \texttt{list and make} just assumes that images are generated somehow (not necessarily with the generated makefile). The generated makefile allows parallel externalization of graphics on multi-core systems and it supports any file dependencies configured with \verb"\tikzpicturedependsonfile".
+\end{quote}
+
 Input:
 \begin{Verbatim}[frame=single]
  \begin{figure}[ht]
@@ -551,43 +577,74 @@ Input:
  \label{fig:external-option}
  \end{figure}
 \end{Verbatim}
-\end{minipage}
-\begin{minipage}[!ht]{.45\linewidth}
+
 Output:
 \begin{Verbatim}[frame=single]
  \begin{figure}[ht]
- \beginpgfgraphicnamed{external}
- \input{external.tikz}
- \endpgfgraphicnamed
+ \tikzsetnextfilename{external}
+ \tikzexternalfiledependsonfile{external}{external.tikz}
+ \input{external}
  \caption{caption}
  \label{fig:external}
  \end{figure}
 \end{Verbatim}
-\end{minipage}
 
- When a graphic is newly created or when it has changed, \pkg{pgfSweave} will generate a command for externalizing that graphic in the shell script \code{$<$filename$>$.sh}.  This follows the process outlined in the externalization section of the pgf manual.  After the \pkg{Sweave} process is done the externalization commands are run.  This will create separate image files for each graphic. On later compilations this image file will simply be included instead of being regenerated.  
+ This both registers the graphic to externalize, generating an entry in the makefile for it, and registers a dependency on the tikz file itself so that if it is changed, the graphic is re-externalized. After the \pkg{Sweave} process is done, it is necessary to run \texttt{pdflatex} and make as in the quote from the \texttt{pgf} manual.  This 
  
 
-\subsection{The \code{$\backslash$pgfrealjobname} commmand}
+\subsection{The \code{$\backslash$tikzexternalize} commmand}
 
-Those familiar with the externalization mechanism in pgf will know that a command of the form \code{$\backslash$pgfrealjobname\{$<$basefilename$>$\}} in the header of your document is required when using externalization.   For example if you document is \code{main.Rnw} then your header should contain the line \code{$\backslash$pgfrealjobname\{main\}}. \pkg{pgfSweave} version 1.1 or later will add this for you automatically, so {\color{red} don't add it yourself!}.  This way if you rename your document, everything will still work out fine.  If you do add that line, \pkg{pgfSweave} will not add its own line.  
+The \pkg{pgfSweave} will automatically add the lines
+\begin{Verbatim}
+  \usetikzlibrary{external}
+  \tikzexternalize[mode=list and make]
+\end{Verbatim}
+below the \verb"\usepackage{tikz}" command. The use of TikZ externalization library with \pkg{pgfSweave} requires these lines.  You may want to customize the options to the externalization library, for example to generate eps graphics, to do this you should use \verb"\tikzset". See the externalization library documentation in the pgf manual to see how. An example is shown in the next section.
  
-\subsection{The \code{tex.driver} option (Externalization Driver)}
-The option \code{tex.driver} controls which engine (\code{latex}, \code{pdflatex}, \code{xelatex}, etc.) is used to externalize graphics.  The value of this option gets passed to the command created in the shell script that is written. For example if the value is \code{pdflatex} then only one command to externalize the graphic gets created in the shell script. For an external figure named ``figure-name'':
+\subsection{Generating other graphics formats (was `The \code{tex.driver} option (Externalization Driver)`}
 
-\begin{Verbatim}
-    pdflatex --jobname=figure-name document-name.tex
+As of version 1.2, the \texttt{text.driver} option is defunct. This was never really a well developed feature and the TikZ externalization driver provides a much better mechanism for generating different graphics formats (eps for example).  It is also possible to generate multiple formats at once. For example, to generate a eps and pdf version of your graphic, use the following line below \verb"\usepackage{tikz}"
+
+\begin{Verbatim}[frame=single]
+\tikzset{external/system call={latex \tikzexternalcheckshellescape -halt-on-error 
+  -interaction=batchmode -jobname "\image" "\texsource"; 
+  dvips -o "\image".eps "\image".dvi;
+  pdflatex \tikzexternalcheckshellescape -halt-on-error 
+  -interaction=batchmode -jobname "\image" "\texsource";}}
+\end{Verbatim}
+  
+Similarly you can use this method to generate Bitmap graphics, see the example in section 32.7 ``Bitmap Graphics Export'' of the pgf 2.10 manual. 
+
+This method can also be used to work with plain latex.  The process is a bit kludgy, but it works. Use a similar line as above the generate an eps graphic then around the graphic:
+
+\begin{Verbatim}[frame=single]
+\begin{figure}[!ht]
+\centering
+{
+\pgfkeys{/pgf/images/include external/.code={\includegraphics[width=3in]{#1}}}
+ <<plainlatex,echo=F,fig=T,width=3,height=3,tikz=T,external=T>>=
+  x <- rnorm(100)
+   plot(x)
+ @
+}% this brace ends the effect of ‘include external’
+\caption{plain latex}
+\end{figure}
 \end{Verbatim}
 
-If the value is \code{latex} then some extra commands are issues to convert dvi output to an eps file. For an external figure named ``figure-name'':
+Then the compilation process would be 
 
-\begin{Verbatim}
-    latex --jobname=figure-name document-name.tex
-    dvipdf figure-name.dvi
-    pdftops -eps document-name.pdf
+\begin{Verbatim}[frame=single]
+  % generate tex file
+R CMD pgfSweave --pgfsweave-only main.Rnw 
+  % generate makefile
+latex main.tex 
+  % externalize graphics
+make -f main.makefile
+  % include the graphics 
+latex main.tex 
+  % finally create a pdf file
+dvipdf main.dvi
 \end{Verbatim}
-
-The command \code{dvipdf} should come with any latex installation. The command \code{pdftops} is part of xpdf but should come with most latex distributions (it does not come with MacTeX for example).
 
 \subsection{The \code{highlight} option}
 Version 1.1.0 of \pkg{pgfSweave} introduced the \code{highlight} option.  The default is \code{TRUE} by default so code will be syntax-highlighted with the \pkg{highlight} package. To disable highlighting add \code{\textbackslash SweaveOpts\{highlight=F\}} to disable it. This option can be combined with the \code{keep.source} option or the \code{tidy} option.  For example:
@@ -619,6 +676,7 @@ Normal:
 \end{Schunk}
 
 With Highlighting:
+\begin{Houtput}
 \hspace*{\fill}\\
 \hlstd{}\ttfamily\noindent
 \hlprompt{\usebox{\hlnormalsizeboxgreaterthan}{\ }}\hlsymbol{x}{\ }\hlassignement{\usebox{\hlnormalsizeboxlessthan}-}{\ }\hlfunctioncall{numeric}\hlkeyword{(}\hlnumber{100}\hlkeyword{)}\mbox{}
@@ -639,11 +697,13 @@ With Highlighting:
 \normalfont
 \hspace*{\fill}\\
 \hlstd{}
+\end{Houtput}
 
 \subsection{The \code{tidy} option}
 Version 1.1.0 of \pkg{pgfSweave} introduced the \code{tidy} option.  This functionality was built into earlier releases, but is now available as an option for greater control.  Setting this chunk option to \code{TRUE} will clean up your code with an internal version of the \code{tidy.source} function from the \code{formatR} package. Using this option will not only preserve comments in the code but will reformat it's appearance.  This option takes precedent over the \code{keep.source} function but can be combined with the \code{highlight} option. Using the previous example:
 
 Default (highlighting only, cleaned up with parse):
+\begin{Houtput}
 \hspace*{\fill}\\
 \hlstd{}\ttfamily\noindent
 \hlprompt{\usebox{\hlnormalsizeboxgreaterthan}{\ }}\hlsymbol{x}{\ }\hlassignement{\usebox{\hlnormalsizeboxlessthan}-}{\ }\hlfunctioncall{numeric}\hlkeyword{(}\hlnumber{100}\hlkeyword{)}\mbox{}
@@ -664,8 +724,10 @@ Default (highlighting only, cleaned up with parse):
 \normalfont
 \hspace*{\fill}\\
 \hlstd{}
+\end{Houtput}
 
 Normal with \code{keep.source=T} (highlighting only, not cleaned up):
+\begin{Houtput}
 \hspace*{\fill}\\
 \hlstd{}\ttfamily\noindent
 \hlprompt{\usebox{\hlnormalsizeboxgreaterthan}{\ }}{\ }{\ }{\ }{\ }{\ }{\ }{\ }{\ }\hlcomment{\usebox{\hlnormalsizeboxhash}{\ }here{\ }is{\ }a{\ }comment}\hspace*{\fill}\\
@@ -685,6 +747,7 @@ Normal with \code{keep.source=T} (highlighting only, not cleaned up):
 \normalfont
 \hspace*{\fill}\\
 \hlstd{}
+\end{Houtput}
 
 Only Tidying:
 \begin{Schunk}
@@ -701,6 +764,7 @@ Only Tidying:
 \end{Schunk}
 
 With Tidying and highlighting:
+\begin{Houtput}
 \hspace*{\fill}\\
 \hlstd{}\ttfamily\noindent
 \hlprompt{\usebox{\hlnormalsizeboxgreaterthan}{\ }}\hlcomment{\usebox{\hlnormalsizeboxhash}{\ }here{\ }is{\ }a{\ }comment}\mbox{}
@@ -725,6 +789,7 @@ With Tidying and highlighting:
 \normalfont
 \hspace*{\fill}\\
 \hlstd{}
+\end{Houtput}
 
 NOTE: Inline comments are defined by the \code{tidy.source()} function to be ``two or more spaces plus the hash symbol \# in your source code.'' Two hash symbols will also not work. 
 
@@ -763,6 +828,7 @@ And we get (from compiling \texttt{pgfSweave-example-tex.in}):
 \section{The Process}
 The process that \pkg{pgfSweave} uses when caching and externalization are turned on is outlined in the flow chart below:
 
+%\tikzsetnextfilename{figs/flow}
 \begin{figure}[!ht]
 \centering
 \begin{tikzpicture}
@@ -845,9 +911,8 @@ The process that \pkg{pgfSweave} uses when caching and externalization are turne
 \centering
 
 
-\beginpgfgraphicnamed{figs/fig-pgfSweave-hist}
+
 \input{figs/fig-pgfSweave-hist.pgf}
-\endpgfgraphicnamed
 \caption{This is from \pkg{pgfSweave} with the \code{pgf} option.}\label{pgfSweave-hist}
 \end{minipage}
 \end{figure}
@@ -858,9 +923,8 @@ The process that \pkg{pgfSweave} uses when caching and externalization are turne
 \centering
 
 
-\beginpgfgraphicnamed{figs/fig-pgfSweave-tikz-hist}
+
 \input{figs/fig-pgfSweave-tikz-hist.tikz}
-\endpgfgraphicnamed
 \caption{This is from \pkg{pgfSweave} with the \code{tikz} option.}\label{pgfSweave-tikz-hist}
 \end{figure}
 
@@ -880,29 +944,43 @@ In versions 0.7.0, \pkg{pgfSweave} got an \code{R CMD} command line interface.  
 Here is a listing from \code{R CMD pgfsweave --help}:
 
 \begin{Verbatim}[frame=single]
-Usage: R CMD pgfsweave [options] file
+	usage:  
+	    R CMD pgfsweave [options] file
 
-A simple front-end for pgfSweave()
+	    A simple front-end for pgfSweave()
 
-The options below reference the following steps 
-  (1) Run Sweave using pgfSweaveDriver
-  (2) Run the pgf externalization commands
-  (3) Compile the resulting tex file using texi2dvi()
+	    The options below reference the following steps 
+	      (1) Run Sweave using pgfSweaveDriver
+	      (2) Run the pgf externalization commands
+	      (3) Compile the resulting tex file using texi2dvi()
 
-Default behavior (no options) is to do (1), (2) then (3) in that order.
+	    Default behavior (no options) is to do (1), (2) then (3) in that order.
 
-Options:
-  -h, --help                print short help message and exit
-  -v, --version             print version info and exit
-  -d, --dvi                 dont use texi2dvi() option pdf=T i.e. call plain 
-                            latex (defalt is pdflatex)
-  -n, --graphics-only       dont do (3), do (1) then (2); ignored if 
-                            --pgfsweave-only is used
-  -s, --pgfsweave-only      dont do (2) or (3), only do (1)
+	    Package repositories: 
+	    http://github.com/cameronbracken/pgfSweave (cutting edge development)
+	    http://r-forge.r-project.org/projects/pgfsweave/ (precompiled dev versions)
+	    http://cran.r-project.org/web/packages/pgfSweave/index.html (stable release)
 
-Package repositories: 
-http://github.com/cameronbracken/pgfSweave (cutting edge development)
-http://r-forge.r-project.org/projects/pgfsweave/ (for precompiled packages)
+	options:
+		-v, --version
+			Print version info and exit
+
+		-d, --dvi
+			dont use texi2dvi() option pdf=T i.e. call plain latex to produce a dvi
+			file instead of a pdf
+
+		-p NUMBER, --processors=NUMBER
+			Number of processors to use for graphics externalization [default 2]
+
+		-n, --graphics-only
+			dont do (3), do (1) then (2); ignored if --pgfsweave-only is used
+
+		-s, --pgfsweave-only
+			dont do (2) or (3), only do (1)
+
+		-h, --help
+			Show this help message and exit
+
 \end{Verbatim}
 
 \clearpage
@@ -913,6 +991,15 @@ http://r-forge.r-project.org/projects/pgfsweave/ (for precompiled packages)
 %--------------------------------------
 %--------------------------------------
 \ques{Can \pkg{pgfSweave} be run from the command line?}
+
+Yes! See section \ref{commandline}.
+\begin{Verbatim}
+$ R CMD pgfsweave <yourfile>.Rnw
+\end{Verbatim}
+
+%--------------------------------------
+%--------------------------------------
+\ques{Can \pkg{pgfSweave} be used to generate eps}
 
 Yes! See section \ref{commandline}.
 \begin{Verbatim}
@@ -963,16 +1050,15 @@ in your \verb".Rprofile" file.
 This is a problem with the CVS version of PGF.  The workaround is to load the \pkg{atbegshi} package before PGF or TikZ:
 
 \begin{verbatim}
-\usepackage{atbegshi}
-\usepackage{pgf}
+ \usepackage{atbegshi}
+ \usepackage{pgf}
 \end{verbatim}
 
 or
 
 \begin{verbatim}
-\usepackage{atbegshi}
-\usepackage{tikz}
-
+  \usepackage{atbegshi}
+  \usepackage{tikz}
 \end{verbatim}
 
 %--------------------------------------

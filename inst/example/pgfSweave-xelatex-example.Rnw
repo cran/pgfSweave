@@ -1,7 +1,23 @@
 \documentclass{article}
 
 \usepackage{tikz}
+\tikzset{external/system call={xelatex \tikzexternalcheckshellescape -halt-on-error 
+  -interaction=batchmode -jobname "\image" "\texsource"}}
+
+%  ******* Warning ******** 
+% the list and make mode of externalization does not create a working makefile
+% when using xelatex, you must translate the incorrect characters is produces 
+% for example:
+%
+% $ cat pgfSweave-xelatex-example.makefile | sed 's/\^\^I/ /g' > pgfSweave-xelatex-example.makefile2
+% 
+% then run 
+%
+% $ make -f pgfSweave-xelatex-example.makefile2
+%
+
 \usepackage[margin=1in]{geometry}
+\usepackage{mathpazo}
 \title{Minimal pgfSweave Example}
 \author{Cameron Bracken}    
 
@@ -33,12 +49,21 @@ significantly from month to month. Finally we include a boxplot of the data:
 \centering
 %notice the new options
 {\pgfkeys{/pgf/images/include external/.code={\includegraphics[width=3in]{#1}}}
-<<boxplot,echo=T,fig=T,width=3,height=3,tikz=T,external=T,highlight=T>>=
-  boxplot(Ozone ~ Month, data = airquality,
-    main='Ozone distribution',xlab='Month',ylab='Concentration')
+<<boxplot,echo=T,fig=T,width=5,height=5,tikz=T,external=T,highlight=T>>=
+  #boxplot(Ozone ~ Month, data = airquality,
+  #  main='Ozone distribution',xlab='Month',ylab='Concentration')
+
+	  n <- 10
+	  chars <- matrix(intToUtf8(seq(161,,1,10*n),multiple=T),n)
+
+	  plot(1:n,type='n',xlab='',ylab='',axes=F, main="UTF-8 Characters")
+	  for(i in 1:n)
+	    for(j in 1:n)
+	      text(i,j,chars[i,j])	
+
 @
 }% this brace ends the effect of ‘include external’
-\caption{This is from pgfSweave. Text is typset by \LaTeX\ and so matches the
+\caption{This is from pgfSweave. Text is typeset by \LaTeX{} and so matches the
  font of the document.}
 \end{figure}
 

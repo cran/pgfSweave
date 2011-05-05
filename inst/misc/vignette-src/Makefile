@@ -20,28 +20,35 @@ EXEC_PATH=../../../exec/
 CHANGELOG_PATH=../../../
 
 RM_PATH={*,$(DOC_PATH)/*}
-RM_SUFFIX={sh,map,aux,tex,log,dvi,in,fdb_latexmk,out,toc}
-BUILD_RM_SUFFIX={log,aux,dvi,sh,map,fdb_latexmk,toc,out}
+RM_SUFFIX={sh,map,aux,tex,log,dvi,in,fdb_latexmk,out,toc,dep,dpth,figlist,makefile}
+BUILD_RM_SUFFIX={sh,map,aux,log,dvi,fdb_latexmk,toc,out,dep,dpth,figlist,makefile}
 
 #
 VIGNETTE_SOURCE_PDF=pgfSweave-vignette-source.pdf
 
 VIGNETTE_DUMMY_PDF=$(DOC_PATH)/pgfSweave.pdf
 VIGNETTE_DUMMY_RNW=$(DOC_PATH)/pgfSweave.Rnw
+VIGNETTE_HANS_RNW=$(DOC_PATH)/pgfSweave_hans.Rnw
+VIGNETTE_HANS_PDF=$(DOC_PATH)/pgfSweave_hans.pdf
 
 EXAMPLE_TEX=$(EXAMPLE_PATH)/pgfSweave-example.tex
 EXAMPLE_PDF=$(EXAMPLE_PATH)/pgfSweave-example.pdf
 
-all: $(VIGNETTE_DUMMY_PDF) changelog
+all: $(VIGNETTE_DUMMY_PDF) $(VIGNETTE_HANS_PDF) changelog
 
 $(VIGNETTE_DUMMY_PDF): $(VIGNETTE_DUMMY_RNW)
 	(cd $(DOC_PATH)/ ; R CMD Sweave pgfSweave.Rnw; latexmk -pdf pgfSweave.tex)
+
+$(VIGNETTE_HANS_PDF): $(VIGNETTE_HANS_RNW)
+	(cd $(DOC_PATH)/ ; R CMD Sweave pgfSweave_hans.Rnw; latexmk -pdf pgfSweave_hans.tex)
 
 $(VIGNETTE_DUMMY_RNW): $(EXAMPLE_PDF)  $(VIGNETTE_SOURCE_PDF)
 	# Copy Sweave.sty
 	cp Sweave.sty $(DOC_PATH)/
 	# Copy all the figures
 	cp figs/*.pdf $(DOC_PATH)/figs/
+	cp figs/*.pgf $(DOC_PATH)/figs/
+	cp figs/*.tikz $(DOC_PATH)/figs/
 	# Copy all the example file to include but dont use .Rnw so they are not 
 	# recognised as another vignette 
 	cp -f $(EXAMPLE_PATH)/pgfSweave-example.Rnw \
@@ -53,8 +60,11 @@ $(VIGNETTE_DUMMY_RNW): $(EXAMPLE_PDF)  $(VIGNETTE_SOURCE_PDF)
 	# Remove the pgfrealjobname command and the path to the example files 
 	# since the new file will be in the same directory 
 	cat pgfSweave-vignette-source.tex \
-		| grep -v "\\pgfrealjobname{pgfSweave-vignette-source}" \
-		| sed 's/\.\.\/\.\.\/example\///g' > tmp
+		| sed 's/\.\.\/\.\.\/example\///g' \
+		| grep -v '^\\usetikzlibrary{external}' \
+		| grep -v '^\\tikzexternalize' \
+		| grep -v '^\\tikzsetnextfilename' \
+		| grep -v '^\\tikzexternalfiledependsonfile'> tmp
 	# Change the names of the input files
 	cat tmp | sed 's/pgfSweave-example\.Rnw/pgfSweave-example-Rnw.in/g' \
 			| sed 's/pgfSweave-example\.tex/pgfSweave-example-tex\.in/g' \
@@ -67,16 +77,17 @@ $(VIGNETTE_SOURCE_PDF):
 $(EXAMPLE_PDF):
 	(cd $(EXAMPLE_PATH)/ ; make)
 
-clean:
+cleanall:
 	rm -rf cache figs *.pdf $(RM_PATH).$(RM_SUFFIX) \
 		$(DOC_PATH)/Sweave.sty $(DOC_PATH)/pgfSweave.Rnw $(DOC_PATH)/*.pdf \
 		$(DOC_PATH)/figs/* tmp $(CHANGELOG) 
 	(cd $(EXAMPLE_PATH) ; make clean)
 	(cd $(TEST_PATH) ; make clean)
 
-cleanforbuild:
+clean:
 	rm -rf cache figs *.pdf $(RM_PATH).$(BUILD_RM_SUFFIX) \
-		./pgfSweave-vignette-source.tex $(DOC_PATH)/pgfSweave.tex tmp
+		./pgfSweave-vignette-source.tex $(DOC_PATH)/pgfSweave.tex \
+		$(DOC_PATH)/pgfSweave_hans.tex tmp
 	(cd $(EXAMPLE_PATH) ; make cleanforbuild)
 	(cd $(TEST_PATH) ; make cleanforbuild)
 
